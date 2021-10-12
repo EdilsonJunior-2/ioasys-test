@@ -4,11 +4,16 @@ import Logo from "../assets/logo";
 import Logout from "../assets/log-out.png";
 import "../styles/pages/home.scss";
 import Pagination from "../components/pagination";
+import InfoModal from "../components/infoModal";
 
 function Home() {
   const [books, setBooks] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState();
+
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     const promise = [];
@@ -41,7 +46,14 @@ function Home() {
       </div>
       <div id="books-grid">
         {books?.map((book) => (
-          <div key={book.id} className="book-box">
+          <div
+            key={book.id}
+            className="book-box"
+            onClick={() => {
+              setSelectedBook(book);
+              setOpen(true);
+            }}
+          >
             <img src={book.imageUrl} alt="livro" />
             <div className="book-info">
               <div className="book-info-top">
@@ -58,6 +70,7 @@ function Home() {
         ))}
       </div>
       <Pagination page={page} totalPages={totalPages} handlePage={handlePage} />
+      <InfoModal open={open} handleClose={handleClose} book={selectedBook} />
     </div>
   );
 }

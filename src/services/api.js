@@ -4,6 +4,10 @@ export const api = axios.create({
   baseURL: " https://books.ioasys.com.br/api/v1",
 });
 
+const auth = {
+  Authorization: `Bearer ${window.localStorage.getItem("@ioasys/authToken")}`,
+};
+
 api.interceptors.response.use(
   (response) => {
     return response;
@@ -41,11 +45,13 @@ export const signIn = (props) => {
 
 export const getBooks = async (props) => {
   return await api.get(`/books?page=${props.page}&amount=${props.amount}`, {
-    headers: {
-      Authorization: `Bearer ${window.localStorage.getItem(
-        "@ioasys/authToken"
-      )}`,
-    },
+    headers: auth,
+  });
+};
+
+export const getBook = async (props) => {
+  return await api.get(`/books/${props.id}`, {
+    headers: auth,
   });
 };
 

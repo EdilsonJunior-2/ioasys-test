@@ -1,5 +1,5 @@
 #home-container {
-  background-image: url("../assets/home-background-image.png");
+  background-image: url("../../assets/home-background-image.png");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -130,8 +130,34 @@
     }
 
     @media (max-width: 767.9px) {
+      justify-content: center;
       .book-box {
-        width: calc(100% - 36px);
+        height: auto;
+        max-height: 300px;
+        width: calc(100% - 10px);
+        margin: 8px 0;
+        img {
+          width: 50%;
+          max-width: 150px;
+          height: auto;
+          max-height: 220px;
+        }
+
+        .book-info {
+          .book-info-top {
+            .book-title {
+              font-size: 18px;
+            }
+
+            .book-authors {
+              font-size: 13px;
+            }
+          }
+
+          .book-info-bottom {
+            font-size: 13px;
+          }
+        }
       }
     }
   }

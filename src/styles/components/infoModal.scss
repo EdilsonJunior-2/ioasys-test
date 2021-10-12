@@ -1,0 +1,165 @@
+#modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #close-button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  #modal-book {
+    margin: 20px;
+    width: 53%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 47% 51%;
+    grid-gap: 2%;
+    height: 80%;
+
+    #modal-book-image {
+      padding: 7vh 20px 0 20px;
+      filter: drop-shadow(0px 12px 18px rgba(0, 0, 0, 0.3));
+      width: calc(100% - 40px);
+      height: 67vh;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    #modal-book-texts {
+      width: calc(100% - 96px);
+      padding: 20px 43px 20px 48px;
+      margin: 30px 5px 30px 0;
+      font-size: 14px;
+      color: #333333;
+      font-family: Heebo-Medium;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #ab2680;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #890460;
+      }
+
+      #modal-book-title {
+        font-size: 26px;
+        line-height: 40px;
+      }
+
+      #modal-book-authors {
+        color: #ab2680;
+        margin-bottom: 30px;
+      }
+
+      .modal-book-info {
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+          text-align: start;
+        }
+
+        .right {
+          font-family: Heebo;
+          text-align: end;
+          color: #999999;
+        }
+      }
+
+      #modal-book-description-title {
+        margin-top: 32px;
+      }
+
+      #modal-book-description {
+        font-family: Heebo;
+        color: #999999;
+        margin-top: 20px;
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    @media (max-width: 1366px) {
+      width: 75%;
+    }
+
+    @media (max-width: 1024px) {
+      width: 95%;
+    }
+
+    @media (max-width: 767.9px) {
+      display: flex;
+      position: absolute;
+      top: 48px;
+      flex-direction: column;
+      height: calc(100% - 80px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #ab2680;
+        border-radius: 10px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #890460;
+      }
+
+      #modal-book-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 350px;
+        padding: 24px 0;
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      #modal-book-texts {
+        overflow: initial;
+        padding: 0 30px;
+        width: calc(100% - 60px);
+      }
+    }
+  }
+}
