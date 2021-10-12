@@ -1,0 +1,93 @@
+#login-content {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/login-background-image-web.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  #login-form {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+
+    #title {
+      display: flex;
+      align-items: center;
+      font-family: Heebo-Light;
+      font-style: normal;
+      font-size: 28px;
+      line-height: 40px;
+      color: white;
+
+      svg {
+        margin-right: 16.6px;
+      }
+    }
+
+    .input-box {
+      margin: 8px 0;
+      width: 348px;
+      background: rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(2px);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      label {
+        font-family: Heebo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 16px;
+        color: #ffffff;
+        opacity: 0.5;
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: calc(100% - 125px);
+        }
+      }
+
+      input {
+        width: 100%;
+        background: transparent;
+        padding: 10px 0;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        margin: 0 10px 0 0;
+      }
+
+      button {
+        border: none;
+        width: 105px;
+        background: #ffffff;
+        border-radius: 44px;
+        color: #b22e6f;
+        font-weight: bold;
+        line-height: 20px;
+        font-size: 18px;
+        font-family: Heebo;
+      }
+    }
+
+    @media (max-width: 540px) {
+      padding: 0 5%;
+      width: 90%;
+
+      .input-box {
+        width: calc(100% - 20px);
+      }
+    }
+  }
+}
