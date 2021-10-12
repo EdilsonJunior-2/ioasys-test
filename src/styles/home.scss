@@ -1,0 +1,137 @@
+#home-container {
+  background-image: url("../assets/home-background-image.png");
+  background-size: cover;
+  background-position: center;
+
+  #home-header {
+    padding: 42px 7.5%;
+    width: 85%;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+
+    #home-header-title {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      font-family: Heebo-Light;
+      font-size: 32px;
+      svg {
+        margin-right: 16px;
+        height: 36px;
+        path {
+          fill: #333333;
+        }
+      }
+    }
+
+    #home-header-logout {
+      display: flex;
+      align-items: center;
+      #welcome {
+        font-family: Heebo;
+        color: #333333;
+      }
+
+      button {
+        background: transparent;
+        margin-left: 16px;
+        border: 1px solid rgba(51, 51, 51, 0.2);
+        box-sizing: border-box;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: 90%;
+      padding: 42px 5%;
+    }
+
+    @media (max-width: 767.9px) {
+      #home-header-logout {
+        #welcome {
+          display: none;
+        }
+      }
+    }
+  }
+
+  #books-grid {
+    padding: 8px 7.5%;
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .book-box {
+      width: calc(24% - 36px);
+      margin: 8px;
+      height: 180px;
+      background-color: white;
+      padding: 10px;
+      background: #ffffff;
+      box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        height: calc(100% - 38px);
+      }
+
+      .book-info {
+        height: 90%;
+        width: 100%;
+        padding: 0 0 0 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .book-info-top {
+          .book-title {
+            font-family: Heebo-Medium;
+            line-height: 20px;
+            color: #333333;
+          }
+
+          .book-authors {
+            font-family: Heebo;
+            color: #ab2680;
+            font-size: 14px;
+          }
+        }
+
+        .book-info-bottom {
+          font-family: Heebo;
+          font-size: 14px;
+          line-height: 20px;
+
+          color: #999999;
+        }
+      }
+    }
+    @media (max-width: 1366px) {
+      .book-box {
+        width: calc(32% - 36px);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      width: 90%;
+      padding: 5px 5%;
+      .book-box {
+        width: calc(49% - 36px);
+      }
+    }
+
+    @media (max-width: 767.9px) {
+      .book-box {
+        width: calc(100% - 36px);
+      }
+    }
+  }
+}

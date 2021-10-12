@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 // import { Container } from './styles';
 
 function Routes() {
-  const isLoggedIn = window.localStorage.getItem("@ioasysLogged");
+  const isLoggedIn = window.localStorage.getItem("@ioasys/logged");
 
   return (
     <Router>
