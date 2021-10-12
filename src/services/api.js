@@ -4,6 +4,18 @@ export const api = axios.create({
   baseURL: " https://books.ioasys.com.br/api/v1",
 });
 
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async function (error) {
+    if (error.response.status === 401) {
+      window.localStorage.clear();
+      window.location.reload();
+    }
+  }
+);
+
 export const signIn = (props) => {
   api
     .post("/auth/sign-in", {
@@ -22,7 +34,7 @@ export const signIn = (props) => {
         res.headers["refresh-token"]
       );
       window.localStorage.setItem("@ioasys/userName", res.data.name);
-      //window.location.reload();
+      window.location.reload();
     })
     .catch((err) => console.log(err));
 };

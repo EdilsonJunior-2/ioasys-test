@@ -1,0 +1,34 @@
+#pagination-container {
+  display: flex;
+  padding: 0 9%;
+  width: 82%;
+  justify-content: flex-end;
+  align-items: center;
+
+  #page-count {
+    font-family: Heebo;
+    font-size: 14px;
+    color: #333333;
+  }
+
+  #pagination-buttons {
+    button {
+      border: 1px solid rgba(51, 51, 51, 0.2);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      cursor: pointer;
+
+      &#reverse {
+        margin: 0 20px;
+        transform: rotate(180deg);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: initial;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../styles/login.scss";
+import React, { useEffect, useState } from "react";
+import "../styles/pages/login.scss";
 import Logo from "../assets/logo";
 import { signIn } from "../services/api";
 // import { Container } from './styles';
@@ -8,9 +8,19 @@ function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  useEffect(() => {
+    const input = document.getElementById("login-content");
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("submit").click();
+      }
+    });
+  }, []);
+
   return (
     <div id="login-content">
-      <div id="login-form">
+      <form id="login-form">
         <div id="title">
           <Logo /> Books
         </div>
@@ -27,14 +37,15 @@ function Login() {
               type="password"
             />
             <button
-              type="submit"
+              type="button"
+              id="submit"
               onClick={() => signIn({ email: email, password: password })}
             >
               Entrar
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

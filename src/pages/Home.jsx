@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getBooks, logout } from "../services/api";
 import Logo from "../assets/logo";
 import Logout from "../assets/log-out.png";
-import "../styles/home.scss";
+import "../styles/pages/home.scss";
+import Pagination from "../components/pagination";
 
 function Home() {
   const [books, setBooks] = useState([]);
@@ -18,6 +19,11 @@ function Home() {
       setTotalPages(Math.ceil(res[0].data.totalPages));
     });
   }, [page]);
+
+  function handlePage(value) {
+    setPage(value);
+  }
+
   return (
     <div id="home-container">
       <div id="home-header">
@@ -51,6 +57,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <Pagination page={page} totalPages={totalPages} handlePage={handlePage} />
     </div>
   );
 }
