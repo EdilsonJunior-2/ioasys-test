@@ -1,7 +1,6 @@
-import React from "react";
 import "../styles/components/pagination.scss";
 import Arrow from "../assets/arrow";
-// import { Container } from './styles';
+import PropTypes from "prop-types";
 
 function Pagination(props) {
   return (
@@ -34,5 +33,11 @@ function Pagination(props) {
     </div>
   );
 }
+
+Pagination.propTypes = {
+  page: PropTypes.number,
+  totalPages: PropTypes.number,
+  handlePage: PropTypes.func,
+};
 
 export default Pagination;

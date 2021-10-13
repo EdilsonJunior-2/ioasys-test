@@ -1,8 +1,8 @@
-import React from "react";
 import { Modal, Fade } from "@mui/material";
 import Quotes from "../assets/quotes";
 import X from "../assets/x.png";
 import "../styles/components/infoModal.scss";
+import PropTypes from "prop-types";
 
 function InfoModal(props) {
   return (
@@ -69,5 +69,22 @@ function InfoModal(props) {
     </Modal>
   );
 }
+
+InfoModal.propTypes = {
+  open: PropTypes.boolean,
+  handleClose: PropTypes.func,
+  book: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    title: PropTypes.string,
+    authors: PropTypes.array,
+    pageCount: PropTypes.number,
+    publisher: PropTypes.string,
+    published: PropTypes.number,
+    language: PropTypes.string,
+    isbn10: PropTypes.string,
+    isbn13: PropTypes.string,
+    description: PropTypes.string,
+  }),
+};
 
 export default InfoModal;

@@ -1,5 +1,5 @@
-import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // Add your own authentication on the below line.
@@ -17,6 +17,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       }
     />
   );
+};
+
+PrivateRoute.propTypes = {
+  component: PropTypes.element,
+  location: PropTypes.any,
 };
 
 export default PrivateRoute;
