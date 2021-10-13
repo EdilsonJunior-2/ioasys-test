@@ -14,10 +14,11 @@ api.interceptors.response.use(
   },
   async function (error) {
     if (error.response.status === 401) {
-      window.localStorage.getItem("@ioasys/refreshToken") &&
-        functionRefreshToken().then(() => {
-          window.location.reload();
-        });
+      if (window.localStorage.getItem("@ioasys/refreshToken")) {
+        alert("Sua sessão expirou, favor entrar novamente");
+        window.localStorage.clear();
+        window.location.reload();
+      }
     }
   }
 );
