@@ -3,7 +3,6 @@ import PrivateRoute from "./privateRoute";
 import Login from "./pages/Login";
 import { Redirect } from "react-router";
 import Home from "./pages/Home";
-// import { Container } from './styles';
 
 function Routes() {
   const isLoggedIn = window.localStorage.getItem("@ioasys/logged");

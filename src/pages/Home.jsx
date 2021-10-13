@@ -24,7 +24,6 @@ function Home() {
     setLoading(true);
     promise.push(getBooks({ page: page, amount: 12 }));
     Promise.all(promise).then((res) => {
-      console.log(res[0].data.data);
       setBooks(res[0].data.data);
       setTotalPages(Math.ceil(res[0].data.totalPages));
       setLoading(false);

@@ -3,7 +3,6 @@ import "../styles/pages/login.scss";
 import Logo from "../assets/logo";
 import { signIn } from "../services/api";
 import Tooltip from "@mui/material/Tooltip";
-// import { Container } from './styles';
 
 function Login() {
   const [email, setEmail] = useState();

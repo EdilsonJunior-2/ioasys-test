@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "eslint:fix": "eslint --fix --ext .js,.jsx ."
+    "eslint:fix": "eslint --fix --ext .js,.jsx .",
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
     "@emotion/react": "^11.4.1",

@@ -29,7 +29,6 @@ export const signIn = (props) => {
       password: props.password,
     })
     .then((res) => {
-      console.log(res);
       window.localStorage.setItem("@ioasys/logged", true);
       window.localStorage.setItem(
         "@ioasys/authToken",
@@ -69,7 +68,7 @@ export const functionRefreshToken = async () => {
         res.headers["refresh-token"]
       );
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 };
 
 export const getBooks = async (props) => {
