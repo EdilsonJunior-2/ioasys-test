@@ -14,8 +14,10 @@ api.interceptors.response.use(
   },
   async function (error) {
     if (error.response.status === 401) {
-      window.localStorage.clear();
-      window.location.reload();
+      window.localStorage.getItem("@ioasys/refreshToken") &&
+        functionRefreshToken().then(() => {
+          window.location.reload();
+        });
     }
   }
 );
@@ -39,6 +41,33 @@ export const signIn = (props) => {
       );
       window.localStorage.setItem("@ioasys/userName", res.data.name);
       window.location.reload();
+    })
+    .catch(() => {
+      props.handleTooltipOpen();
+      window.localStorage.clear();
+    });
+};
+
+export const functionRefreshToken = async () => {
+  await api
+    .post(
+      "/auth/refresh-token",
+      {
+        refreshToken: window.localStorage.getItem("@ioasys/refreshToken"),
+      },
+      {
+        headers: auth,
+      }
+    )
+    .then((res) => {
+      window.localStorage.setItem(
+        "@ioasys/authToken",
+        res.headers.authorization
+      );
+      window.localStorage.setItem(
+        "@ioasys/refreshToken",
+        res.headers["refresh-token"]
+      );
     })
     .catch((err) => console.log(err));
 };

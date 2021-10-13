@@ -14,13 +14,19 @@ function Pagination(props) {
         <button
           id="reverse"
           disabled={props.page === 1}
-          onClick={() => props.handlePage(props.page - 1)}
+          onClick={() => {
+            props.handlePage(props.page - 1);
+            window.localStorage.setItem("@ioasys/page", props.page - 1);
+          }}
         >
           <Arrow />
         </button>
         <button
           disabled={props.page === props.totalPages}
-          onClick={() => props.handlePage(props.page + 1)}
+          onClick={() => {
+            props.handlePage(props.page + 1);
+            window.localStorage.setItem("@ioasys/page", props.page + 1);
+          }}
         >
           <Arrow />
         </button>

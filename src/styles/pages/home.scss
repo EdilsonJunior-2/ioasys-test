@@ -4,6 +4,10 @@
   background-position: center;
   min-height: 100vh;
 
+  &.blur-true {
+    filter: blur(1px);
+  }
+
   #home-header {
     padding: 42px 7.5%;
     width: 85%;

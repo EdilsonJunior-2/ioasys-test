@@ -69,6 +69,7 @@
       }
 
       button {
+        cursor: pointer;
         border: none;
         width: 105px;
         background: #ffffff;
@@ -87,6 +88,30 @@
 
       .input-box {
         width: calc(100% - 20px);
+      }
+    }
+
+    #tooltip {
+      display: flex;
+      justify-content: flex-start;
+      height: 60px;
+      width: 260px;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(2px);
+        border-radius: 4px;
+        font-family: Heebo-Bold;
+        font-size: 16px;
+
+        span {
+          color: rgba(255, 255, 255, 0.4);
+          backdrop-filter: blur(2px);
+          transform: translate(20px, 0) !important;
+        }
       }
     }
   }
